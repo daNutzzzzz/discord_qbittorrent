@@ -20,9 +20,12 @@ This is a simple bash script for sending notifications to a Discord webhook for 
 5. Adapt the categories to align with your qBittorrent instance. For example, besides the usual sonarr, radarr categories, I have watch folders for manually adding torrents which I like to use for notifications.
 6. You can test the script by running it in your terminal with some test parameters. For example: <code>bash /path/to/script/discord_qbit_notification.sh TestName 9999922 12 tracker.com radarr savepath</code>. If successful you should see confirmation in the terminal along with a discord notification.
 7. Add the following to 'run external program on torrent completion' under your qBittorrent settings:
-<code>/path/to/script/discord_qbit_notification.sh "%N" "%Z" "%C" "%T" "%L" "%D"</code>
+`
+/path/to/script/discord_qbit_notification_grab.sh "%N" "%Z" "%C" "%T" "%L" "%D"
+/path/to/script/discord_qbit_notification_complete.sh "%N" "%Z" "%C" "%T" "%L" "%D"
+`
 ***Note:*** The order of the parameters is important as they are captured accordingly in the script, make sure to edit accordingly if adapting the script for different parameters.
-8. Done!
+9. Done!
 
 ## Tip: adding categories to watched folders in qBittorrent (docker)
 If you're using qBittorrent through [linuxserver's container](https://hub.docker.com/r/linuxserver/qbittorrent), the webUI doesn't surface a way to add categories to watched folders. To do this, you have to edit the `watched_folders.json` file located in the containers config folder. The path will be something like `containerConfig/qbittorrent/qBittorrent/watched_folders.json`.
